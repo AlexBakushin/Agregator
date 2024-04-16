@@ -1,8 +1,10 @@
 import datetime
+import json
+
 import bson
 
 
-def main(inp):
+async def main(inp):
     dt_from_obj = datetime.datetime.strptime(inp["dt_from"], "%Y-%m-%dT%H:%M:%S")
     dt_to_obj = datetime.datetime.strptime(inp["dt_upto"], "%Y-%m-%dT%H:%M:%S")
     right_data = []
@@ -65,6 +67,6 @@ def main(inp):
                 answer["labels"].append((dt_from_obj + datetime.timedelta(hours=j)).isoformat())
 
     f.close()
-    print(answer)
+    return json.dumps(answer)
 
 
