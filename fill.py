@@ -72,7 +72,7 @@ async def main(inp):
         # Если валидация для часa
         if inp["group_type"] == "hour":
             val = 0
-            for j in range(round((dt_to_obj - dt_from_obj).total_seconds() / 3600) + 1):
+            for j in range(int((dt_to_obj - dt_from_obj).total_seconds() / 3600) + 1):
                 for i in right_data:
                     if i["dt"].hour == (dt_from_obj + datetime.timedelta(hours=j)).hour and i["dt"].date() == (
                             dt_from_obj + datetime.timedelta(hours=j)).date():
